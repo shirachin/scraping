@@ -1,6 +1,6 @@
 def detect_text_uri(uri) -> str:
     from google.cloud import vision
-    from settings.settings import COUNTER_URL
+    from tool.settings import COUNTER_URL
     import requests
 
     client = vision.ImageAnnotatorClient()
