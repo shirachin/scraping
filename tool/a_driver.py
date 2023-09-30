@@ -1,6 +1,8 @@
 from selenium.webdriver.support.select import Select
 from selenium.webdriver.common.by import By
 
+import requests
+
 from .driver import Driver
 from .settings import LOGIN_DATA, A_URL
 from .search_setting import search_terms
