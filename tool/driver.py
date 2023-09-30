@@ -6,7 +6,6 @@ from selenium.webdriver.support.ui import WebDriverWait
 from webdriver_manager.chrome import ChromeDriverManager
 
 from time import sleep
-import re
 
 from tool.settings import CHROME_PATH
 
@@ -20,7 +19,7 @@ class MyException(Exception):
 
 class FIND_ELEMENT_EXCEPTION(MyException):
     def __str__(self) -> str:
-        return f"element_find = None <{self.args[0]}>"
+        return f"element_find = None By: {self.args[0]} path: {self.args[1]}"
 
 
 class Driver:
@@ -55,4 +54,4 @@ class Driver:
             if self.driver.find_elements(by, value):
                 return self.driver.find_element(by, value)
             self.wait(2)
-        raise FIND_ELEMENT_EXCEPTION
+        raise FIND_ELEMENT_EXCEPTION(by, value)

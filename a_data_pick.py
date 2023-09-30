@@ -1,8 +1,8 @@
-from tool.driver import A_driver
+from tool.a_driver import ADriver
 
 import traceback
 
-ad = A_driver(True)
+ad = ADriver(True)
 
 ad.login()
 try:

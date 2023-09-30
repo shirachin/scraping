@@ -41,6 +41,9 @@ class Boolean_field:
         self.value = init
         self.required = required
 
+    def set_param(self, value: bool):
+        self.value = value
+
     def toggle(self):
         self.value = not self.value
 
@@ -58,22 +61,22 @@ class Property_api:
         self.address_original = String_field(required=True)
         self.building_name = String_field(required=True)
         self.station1 = String_field()
-        self.station1_time = Integer_field()
+        self.station1_time = Integer_field(min=1)
         self.station2 = String_field()
-        self.station2_time = Integer_field()
+        self.station2_time = Integer_field(min=1)
         self.station3 = String_field()
-        self.station3_time = Integer_field()
+        self.station3_time = Integer_field(min=1)
         self.floor_plan = String_field()
         self.floor_plan_breakdown = String_field()
         self.area = String_field()
         self.area_num = Integer_field()
         self.balcony = String_field()
         self.building_structure = String_field()
-        self.n_storey_building = Integer_field()
-        self.floor = Integer_field()
+        self.n_storey_building = Integer_field(min=1)
+        self.floor = Integer_field(min=1, max=self.n_storey_building)
         self.is_top_floor = Boolean_field()
         self.building_year = Integer_field()
-        self.building_month = Integer_field()
+        self.building_month = Integer_field(min=1, max=12)
         self.units = String_field()
         self.area_price = String_field()
         self.parking_car = String_field()
