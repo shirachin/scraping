@@ -2,5 +2,3 @@
 .venv
 __pycache__
 deploy.command
-
-search_setting.py
