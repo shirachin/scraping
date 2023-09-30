@@ -1,31 +1,14 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.remote.webelement import WebElement
-
 from webdriver_manager.chrome import ChromeDriverManager
 
-
-from selenium.webdriver.support import expected_conditions as EC
-
 from time import sleep
-import requests
-
-
-
-import traceback
-import sys
-import os
 import re
-import pprint
-import pyperclip
-import asyncio
 
-from tool.settings import CHROME_PATH, REWARD_FILTER, API_URL
-from tool.search_setting import search_terms
-from tool.gcvision import detect_text_uri
-from tool.api import Property_api
+from tool.settings import CHROME_PATH
 
 
 class MyException(Exception):
@@ -40,12 +23,10 @@ class FIND_ELEMENT_EXCEPTION(MyException):
         return f"element_find = None <{self.args[0]}>"
 
 
+RE_M = re.compile(r"[\d.]+ヶ月")
+RE_P = re.compile(r"[\d.]+％")
+RE_Y = re.compile(r"[\d.]+万円")
 
-
-
-RE_M = re.compile(r'[\d.]+ヶ月')
-RE_P = re.compile(r'[\d.]+％')
-RE_Y = re.compile(r'[\d.]+万円')
 
 class Driver:
     def __init__(self, test_mode: bool) -> None:
