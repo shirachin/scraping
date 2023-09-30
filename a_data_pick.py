@@ -1,8 +1,8 @@
-from tool.driver import ATBB_driver
+from tool.driver import A_driver
 
 import traceback
 
-ad = ATBB_driver(True)
+ad = A_driver(True)
 
 ad.login()
 try:

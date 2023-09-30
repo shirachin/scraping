@@ -13,8 +13,11 @@ from selenium.webdriver.support import expected_conditions as EC
 from time import sleep
 import requests
 
+from dotenv import load_dotenv
+
 import traceback
 import sys
+import os
 import re
 import pprint
 import pyperclip
@@ -37,27 +40,28 @@ class FIND_ELEMENT_EXCEPTION(MyException):
     def __str__(self) -> str:
         return f"element_find = None <{self.args[0]}>"
 
+load_dotenv()
 
 login_data = [
-    ("002703170014", "milaie87"),
-    ("002703170015", "milaie87"),
-    ("002703170016", "milaie87"),
-    ("002703170017", "milaie87"),
-    ("002703170018", "milaie87"),
-    ("002703170019", "milaie87"),
-    ("002703170020", "milaie87"),
-    ("002703170021", "milaie87"),
-    ("002703170022", "milaie87"),
-    ("002703170023", "milaie87"),
-    ("002703170024", "milaie87"),
-    ("002703170025", "milaie87"),
+    (os.environ['LOGIN_DATA14'], os.environ['LOGIN_DATAPW']),
+    (os.environ['LOGIN_DATA15'], os.environ['LOGIN_DATAPW']),
+    (os.environ['LOGIN_DATA16'], os.environ['LOGIN_DATAPW']),
+    (os.environ['LOGIN_DATA17'], os.environ['LOGIN_DATAPW']),
+    (os.environ['LOGIN_DATA18'], os.environ['LOGIN_DATAPW']),
+    (os.environ['LOGIN_DATA19'], os.environ['LOGIN_DATAPW']),
+    (os.environ['LOGIN_DATA20'], os.environ['LOGIN_DATAPW']),
+    (os.environ['LOGIN_DATA21'], os.environ['LOGIN_DATAPW']),
+    (os.environ['LOGIN_DATA22'], os.environ['LOGIN_DATAPW']),
+    (os.environ['LOGIN_DATA23'], os.environ['LOGIN_DATAPW']),
+    (os.environ['LOGIN_DATA24'], os.environ['LOGIN_DATAPW']),
+    (os.environ['LOGIN_DATA25'], os.environ['LOGIN_DATAPW']),
 ]
 
 RE_M = re.compile(r'[\d.]+ヶ月')
 RE_P = re.compile(r'[\d.]+％')
 RE_Y = re.compile(r'[\d.]+万円')
 
-class ATBB_driver:
+class A_driver:
     def __init__(self, test_mode: bool) -> None:
         options = Options()
 
