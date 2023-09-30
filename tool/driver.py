@@ -23,11 +23,6 @@ class FIND_ELEMENT_EXCEPTION(MyException):
         return f"element_find = None <{self.args[0]}>"
 
 
-RE_M = re.compile(r"[\d.]+ヶ月")
-RE_P = re.compile(r"[\d.]+％")
-RE_Y = re.compile(r"[\d.]+万円")
-
-
 class Driver:
     def __init__(self, test_mode: bool) -> None:
         options = Options()
